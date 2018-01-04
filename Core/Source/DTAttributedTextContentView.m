@@ -448,51 +448,54 @@ static Class _layerClassToUseForDTAttributedTextContentView = nil;
 
 - (void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
 {
-	// needs clearing of background
-	CGRect rect = CGContextGetClipBoundingBox(ctx);
-	
-	if (_backgroundOffset.height != 0 || _backgroundOffset.width != 0)
-	{
-		CGContextSetPatternPhase(ctx, _backgroundOffset);
-	}
-	
-	CGContextSetFillColorWithColor(ctx, [self.backgroundColor CGColor]);
-	CGContextFillRect(ctx, rect);
-	
-	// offset layout if necessary
-	if (!CGPointEqualToPoint(_layoutOffset, CGPointZero))
-	{
-		CGAffineTransform transform = CGAffineTransformMakeTranslation(_layoutOffset.x, _layoutOffset.y);
-		CGContextConcatCTM(ctx, transform);
-	}
-	
-	DTCoreTextLayoutFrame *theLayoutFrame = self.layoutFrame; // this is synchronized
-	
-	// construct drawing options
-	DTCoreTextLayoutFrameDrawingOptions options = DTCoreTextLayoutFrameDrawingDefault;
-	
-	if (!_shouldDrawImages)
-	{
-		options |= DTCoreTextLayoutFrameDrawingOmitAttachments;
-	}
-	
-	if (!_shouldDrawLinks)
-	{
-		options |= DTCoreTextLayoutFrameDrawingOmitLinks;
-	}
-	
-	if (_delegateFlags.delegateSupportsNotificationBeforeDrawing)
-	{
-		[_delegate attributedTextContentView:self willDrawLayoutFrame:theLayoutFrame inContext:ctx];
-	}
-	
-	// need to prevent updating of string and drawing at the same time
-	[theLayoutFrame drawInContext:ctx options:options];
-	
-	if (_delegateFlags.delegateSupportsNotificationAfterDrawing)
-	{
-		[_delegate attributedTextContentView:self didDrawLayoutFrame:theLayoutFrame inContext:ctx];
-	}
+	DTBlockPerformSyncOnMainThread(^{
+		
+		// needs clearing of background
+		CGRect rect = CGContextGetClipBoundingBox(ctx);
+		
+		if (_backgroundOffset.height != 0 || _backgroundOffset.width != 0)
+		{
+			CGContextSetPatternPhase(ctx, _backgroundOffset);
+		}
+		
+		CGContextSetFillColorWithColor(ctx, [self.backgroundColor CGColor]);
+		CGContextFillRect(ctx, rect);
+		
+		// offset layout if necessary
+		if (!CGPointEqualToPoint(_layoutOffset, CGPointZero))
+		{
+			CGAffineTransform transform = CGAffineTransformMakeTranslation(_layoutOffset.x, _layoutOffset.y);
+			CGContextConcatCTM(ctx, transform);
+		}
+		
+		DTCoreTextLayoutFrame *theLayoutFrame = self.layoutFrame; // this is synchronized
+		
+		// construct drawing options
+		DTCoreTextLayoutFrameDrawingOptions options = DTCoreTextLayoutFrameDrawingDefault;
+		
+		if (!_shouldDrawImages)
+		{
+			options |= DTCoreTextLayoutFrameDrawingOmitAttachments;
+		}
+		
+		if (!_shouldDrawLinks)
+		{
+			options |= DTCoreTextLayoutFrameDrawingOmitLinks;
+		}
+		
+		if (_delegateFlags.delegateSupportsNotificationBeforeDrawing)
+		{
+			[_delegate attributedTextContentView:self willDrawLayoutFrame:theLayoutFrame inContext:ctx];
+		}
+		
+		// need to prevent updating of string and drawing at the same time
+		[theLayoutFrame drawInContext:ctx options:options];
+		
+		if (_delegateFlags.delegateSupportsNotificationAfterDrawing)
+		{
+			[_delegate attributedTextContentView:self didDrawLayoutFrame:theLayoutFrame inContext:ctx];
+		}
+	});
 }
 
 - (void)drawRect:(CGRect)rect

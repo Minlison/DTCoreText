@@ -172,15 +172,25 @@
 		<key>Title</key>
 		<string>Never mind this file ...</string>
 	</dict>
-    <dict>
-        <key>Description</key>
-        <string>AutoLayout test</string>
-        <key>Title</key>
-        <string>AutoLayout test</string>
-        <key>File</key>
-        <string>FontSizes.html</string>
-        <key>AutoLayoutTest</key>
-        <true/>
-    </dict>
+	<dict>
+		<key>Description</key>
+		<string>AutoLayout test</string>
+		<key>Title</key>
+		<string>AutoLayout test</string>
+		<key>File</key>
+		<string>FontSizes.html</string>
+		<key>AutoLayoutTest</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>Description</key>
+		<string>&lt;p&gt;小丽想不摸到蓝色珠子，请问她应该摸第________个盒子？&lt;/p&gt;&lt;p&gt;&lt;img src=\&quot;http://7xu137.com1.z0.glb.clouddn.com/ueditor_20161213_584f624e3905b.png\&quot; title=\&quot;blob.png\&quot; alt=\&quot;blob.png\&quot;/&gt;&lt;/p&gt;</string>
+		<key>Title</key>
+		<string>AutoLayout test</string>
+		<key>File</key>
+		<string>FontSizes.html</string>
+		<key>AutoLayoutTest</key>
+		<true/>
+	</dict>
 </array>
 </plist>

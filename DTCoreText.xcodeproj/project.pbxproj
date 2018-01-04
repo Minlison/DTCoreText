@@ -1843,8 +1843,8 @@
 				A740368516E51B3A00ECCDE0 /* DemoAboutViewController.h */,
 				A740368616E51B3A00ECCDE0 /* DemoAboutViewController.m */,
 				A740368716E51B3A00ECCDE0 /* DemoAboutViewController.xib */,
-				5AF0E4DB1FBCBA1C165C0959 /* AutoLayoutDemoViewController.m */,
 				5AF0E909A170F1B0FF3CCC47 /* AutoLayoutDemoViewController.h */,
+				5AF0E4DB1FBCBA1C165C0959 /* AutoLayoutDemoViewController.m */,
 				5AF0E4D86A6BE8FC798F9702 /* AutoLayoutDemoViewController.xib */,
 			);
 			path = Source;
@@ -2600,6 +2600,10 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Drobnik.com;
 				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = 694YU37J6Y;
+						ProvisioningStyle = Manual;
+					};
 					A78D9F771965B7DD00C80986 = {
 						CreatedOnToolsVersion = 6.0;
 					};
@@ -3429,7 +3433,9 @@
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 694YU37J6Y;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = "Demo/DemoApp-Prefix.pch";
@@ -3440,6 +3446,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.drobnik.DTCoreText.demo;
 				PRODUCT_NAME = RTDemoApp;
+				PROVISIONING_PROFILE = "28c1c199-d9c2-4592-9dac-00b3b04c941b";
+				PROVISIONING_PROFILE_SPECIFIER = ChengzivrWildcard;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3449,7 +3457,9 @@
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = YES;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "Demo/DemoApp-Prefix.pch";
 				GCC_THUMB_SUPPORT = NO;
 				INFOPLIST_FILE = "Demo/DemoApp-Info.plist";
@@ -3458,6 +3468,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.drobnik.DTCoreText.demo;
 				PRODUCT_NAME = RTDemoApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -4053,7 +4064,9 @@
 		A7DC5CFC17F833F1006ADDF5 /* Coverage */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 694YU37J6Y;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREFIX_HEADER = "Demo/DemoApp-Prefix.pch";
@@ -4064,6 +4077,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.drobnik.DTCoreText.demo;
 				PRODUCT_NAME = RTDemoApp;
+				PROVISIONING_PROFILE = "28c1c199-d9c2-4592-9dac-00b3b04c941b";
+				PROVISIONING_PROFILE_SPECIFIER = ChengzivrWildcard;
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
